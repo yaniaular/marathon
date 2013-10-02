@@ -29,10 +29,7 @@ int palindrome(string p){
         b = p.substr(tam + mod);
     reverse(b.begin(), b.end());
     
-    if( a == b)
-        return true;
-    else
-        return false;
+    return a == b;
 }
 
 int mirror(string p){
