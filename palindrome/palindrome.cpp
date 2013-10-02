@@ -11,11 +11,11 @@ using namespace std;
 int palindrome(string p){
     string a,b;
     int tam = p.size();
-    
-    if( tam % 2 != 0)
-        tam = (tam-1)/2;
-    else
+    int mod = tam % 2; 
+    if( mod == 0)
         tam = tam/2;
+    else
+        tam = (tam-1)/2;
 
     a = p.substr(0, tam);
     
@@ -26,8 +26,7 @@ int palindrome(string p){
         a = p.at(0);
     }
     else
-        b = p.substr(tam + 1);
-    
+        b = p.substr(tam + mod);
     reverse(b.begin(), b.end());
     
     if( a == b)
@@ -37,35 +36,38 @@ int palindrome(string p){
 }
 
 int mirror(string p){
-    string reverse = "A3HILJMO2TUVWXY51SEZ8";
+    string reve = "A3HILJMO2TUVWXY51SEZ8";
     string copia = p;
+    string copia2 = p;
     int pos, j;
     j = 0;
 
-    while(j < reverse.size()){
-        pos = p.find( reverse.at(j) );
+    while(j < reve.size()){
+        pos = copia.find( reve.at(j) );
         if( pos != -1 ){
-            p.erase( pos, 1);
+            copia.erase( pos, 1);
 
         }else{
             j++;
         }
     }
-    if( p.size() == 0 ){
-        for(j = 0; j < copia.size(); j++){
-            switch( copia.at(j) ){
-                case '3':
-                    copia.replace(j, 1, "E");
-                    break;
-                case '2':
-                    copia.replace(j, 1, "S");
-                    break;
-                case '5':
-                    copia.replace(j, 1, "Z");
-                    break;
+    if( copia.size() == 0 ){
+        
+        for(j = 0; j < copia2.size(); j++){
+            switch( copia2.at(j) ){
+                case '3': copia2.replace(j, 1, "E"); break;
+                case 'E': copia2.replace(j, 1, "3"); break;
+                case '2': copia2.replace(j, 1, "S"); break;
+                case 'S': copia2.replace(j, 1, "2"); break;
+                case '5': copia2.replace(j, 1, "Z"); break;
+                case 'Z': copia2.replace(j, 1, "5"); break;
+                case 'J': copia2.replace(j, 1, "L"); break;
+                case 'L': copia2.replace(j, 1, "J"); break;
             }
         }
-        return palindrome(copia);
+        reverse( p.begin(), p.end() );
+        return p == copia2;
+
     }
     else{
         return false;
@@ -86,15 +88,15 @@ int main(){
         m = mirror(input_line);
         
         if(p && m)
-            cout << " -- is a mirrored palindrome";    
+            cout << " -- is a mirrored palindrome.";    
         else if(p)
-            cout << " -- is a regular palindrome";    
+            cout << " -- is a regular palindrome.";    
         else if(m)
-            cout << " -- is a mirrored string";
+            cout << " -- is a mirrored string.";
         else
-            cout << " -- is not a palindrome";
+            cout << " -- is not a palindrome.";
         
-        cout << endl;
+        cout << endl<< endl;
         getline(cin, input_line);
     }
     return 0;
