@@ -9,25 +9,15 @@
 using namespace std;
 
 int palindrome(string p){
-    string a,b;
+    string b;
     int tam = p.size();
     int mod = tam % 2; 
     
     tam = tam/2;
-
-    a = p.substr(0, tam);
-    
-    if(p.size() == 2)
-        b = p.at(1);
-    else if(p.size() == 1){
-        b = p.at(0);
-        a = p.at(0);
-    }
-    else
-        b = p.substr(tam + mod);
+    b = p.substr(tam + mod);
     reverse(b.begin(), b.end());
     
-    return a == b;
+    return p.substr(0, tam) == b;
 }
 
 int mirror(string p){
