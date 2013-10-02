@@ -12,10 +12,8 @@ int palindrome(string p){
     string a,b;
     int tam = p.size();
     int mod = tam % 2; 
-    if( mod == 0)
-        tam = tam/2;
-    else
-        tam = (tam-1)/2;
+    
+    tam = tam/2;
 
     a = p.substr(0, tam);
     
