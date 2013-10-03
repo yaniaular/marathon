@@ -12,47 +12,40 @@ int palindrome(string p){
     string b;
     int tam = p.size();
     int mod = tam % 2; 
-    
     tam = tam/2;
     b = p.substr(tam + mod);
     reverse(b.begin(), b.end());
-    
     return p.substr(0, tam) == b;
 }
 
 int mirror(string p){
     string reve = "A3HILJMO2TUVWXY51SEZ8";
     string copia = p;
-    string copia2 = p;
-    int pos, j;
+    int band, j;
     j = 0;
 
-    while(j < reve.size()){
-        pos = copia.find( reve.at(j) );
-        if( pos != -1 ){
-            copia.erase( pos, 1);
-
-        }else{
-            j++;
-        }
+    band = 1;
+    while( j < p.size() and band != -1){
+        band = reve.find( p.at(j) );
+        j++;
     }
-    if( copia.size() == 0 ){
+       
+    if( band != -1 ){
         
-        for(j = 0; j < copia2.size(); j++){
-            switch( copia2.at(j) ){
-                case '3': copia2.replace(j, 1, "E"); break;
-                case 'E': copia2.replace(j, 1, "3"); break;
-                case '2': copia2.replace(j, 1, "S"); break;
-                case 'S': copia2.replace(j, 1, "2"); break;
-                case '5': copia2.replace(j, 1, "Z"); break;
-                case 'Z': copia2.replace(j, 1, "5"); break;
-                case 'J': copia2.replace(j, 1, "L"); break;
-                case 'L': copia2.replace(j, 1, "J"); break;
+        for(j = 0; j < copia.size(); j++){
+            switch( copia.at(j) ){
+                case '3': copia.replace(j, 1, "E"); break;
+                case 'E': copia.replace(j, 1, "3"); break;
+                case '2': copia.replace(j, 1, "S"); break;
+                case 'S': copia.replace(j, 1, "2"); break;
+                case '5': copia.replace(j, 1, "Z"); break;
+                case 'Z': copia.replace(j, 1, "5"); break;
+                case 'J': copia.replace(j, 1, "L"); break;
+                case 'L': copia.replace(j, 1, "J"); break;
             }
         }
         reverse( p.begin(), p.end() );
-        return p == copia2;
-
+        return p == copia;
     }
     else{
         return false;
