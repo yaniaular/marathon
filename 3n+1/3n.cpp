@@ -18,6 +18,7 @@ int main(){
     while(cin){
         cout << input_line;
         getline(cin, input_line);
+        cout << endl;
     }
     return 0;
 }
