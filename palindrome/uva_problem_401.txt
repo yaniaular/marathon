@@ -1,0 +1,36 @@
+NOTAPALINDROME -- is not a palindrome.
+
+ISAPALINILAPASI -- is a regular palindrome.
+
+2A3MEAS -- is a mirrored string.
+
+ATOYOTA -- is a mirrored palindrome.
+
+AREPERA -- is a regular palindrome.
+
+BB -- is a regular palindrome.
+
+H0LA -- is not a palindrome.
+
+U -- is a mirrored palindrome.
+
+B -- is a regular palindrome.
+
+AB3HEBA -- is not a palindrome.
+
+3 -- is a regular palindrome.
+
+88 -- is a mirrored palindrome.
+
+0A0 -- is a regular palindrome.
+
+5 -- is a regular palindrome.
+
+2 -- is a regular palindrome.
+
+JAL -- is a mirrored string.
+
+L -- is a regular palindrome.
+
+ABYYBA -- is a regular palindrome.
+
