@@ -1,16 +1,19 @@
 #include <iostream>
 #include <string.h>
 #include <algorithm> //Para el metodo reverse
+#include <stdint.h>
 
 using namespace std;
 
 int main(){
-    int tam, i, a, b, max, aux, aux2;
-    int num[400000];
-    int num2[400000];
-    int num3[200000];
+    long int aux;
+    int tam, i, a, b, max, aux2;
+    long int num[400000];
+    long int num2[400000];
+    long int num3[200000];
     string par1, par2;
     string input_line;
+
 
     for(i = 0; i < 399999; i++)
         num[i] = -1;
@@ -40,8 +43,8 @@ int main(){
             aux = aux2;
             if( aux2 < 400000 ){
                 if(  num[aux2] == -1){
-                    i = 3;
-                    while( aux > 4 ){
+                    i = 1;
+                    while( aux > 1 ){
                         if( aux % 2 == 1  )
                             aux = aux*3 +1;
                         else
@@ -55,8 +58,8 @@ int main(){
             }
             else if(aux2 >= 400000 && aux2 < 800000 ){
                 if(  num2[aux2 - 400000] == -1){
-                    i = 3;
-                    while( aux > 4 ){
+                    i = 1;
+                    while( aux > 1 ){
                         if( aux % 2 == 1  )
                             aux = aux*3 +1;
                         else
@@ -70,20 +73,23 @@ int main(){
             }
             else{
                 if(  num3[aux2 - 800000] == -1){
-                    i = 3;
-                    while( aux > 4 ){
+                    i = 1;
+                    while( aux > 1 ){
                         if( aux % 2 == 1  )
                             aux = aux*3 +1;
                         else
                             aux = aux/2;
                         i+=1;
                     }
-                    num3[aux2 - 800000] = i;
                 }
                 else
                     i = num3[aux2 - 800000];
             }
 
+                    if(i == 525){
+                    num3[aux2 - 800000] = i;
+                    cout << "*** " << num3[aux2-800000] << " " <<max << endl; 
+                    }
             if( i > max){
                 max = i;
             }
