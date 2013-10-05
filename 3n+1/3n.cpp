@@ -4,15 +4,22 @@
 
 using namespace std;
 
-
 int main(){
     int tam, i, a, b, max, aux, aux2;
-    int num[1000000];
+    int num[400000];
+    int num2[400000];
+    int num3[200000];
     string par1, par2;
     string input_line;
 
-    for(i = 0; i <= 999999; i++)
+    for(i = 0; i < 399999; i++)
         num[i] = -1;
+    
+    for(i = 0; i < 399999; i++)
+        num2[i] = -1;
+    
+    for(i = 0; i < 199999; i++)
+        num3[i] = -1;
 
     getline(cin, input_line);
     while(cin){
@@ -30,23 +37,52 @@ int main(){
         max = -1;
         for(aux2 = a; aux2 <= b ; aux2++){
 
-            if(num[aux2] == -1){
-                aux = aux2;
-                i = 3;
-                while( aux > 4 ){
-
-                    if( aux % 2 == 1  )
-                        aux = aux*3 +1;
-                    else
-                        aux = aux/2;
-                    
-                    i+=1;
+            aux = aux2;
+            if( aux2 < 400000 ){
+                if(  num[aux2] == -1){
+                    i = 3;
+                    while( aux > 4 ){
+                        if( aux % 2 == 1  )
+                            aux = aux*3 +1;
+                        else
+                            aux = aux/2;
+                        i+=1;
+                    }
+                    num[aux2] = i;
+                } 
+                else
+                    i = num[aux2];
+            }
+            else if(aux2 >= 400000 && aux2 < 800000 ){
+                if(  num2[aux2 - 400000] == -1){
+                    i = 3;
+                    while( aux > 4 ){
+                        if( aux % 2 == 1  )
+                            aux = aux*3 +1;
+                        else
+                            aux = aux/2;
+                        i+=1;
+                    }
+                    num2[aux2 - 400000] = i;
                 }
-              num[aux2] = i;
+                else
+                    i = num2[aux2 - 400000];
             }
             else{
-                i = num[aux2];
-            }   
+                if(  num3[aux2 - 800000] == -1){
+                    i = 3;
+                    while( aux > 4 ){
+                        if( aux % 2 == 1  )
+                            aux = aux*3 +1;
+                        else
+                            aux = aux/2;
+                        i+=1;
+                    }
+                    num3[aux2 - 800000] = i;
+                }
+                else
+                    i = num3[aux2 - 800000];
+            }
 
             if( i > max){
                 max = i;
