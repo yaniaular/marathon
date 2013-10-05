@@ -7,7 +7,8 @@ using namespace std;
 
 int main(){
     long int aux;
-    int tam, i, a, b, max, aux2;
+    unsigned long max;
+    int tam, i, a, b, aux2;
     long int num[400000];
     long int num2[400000];
     long int num3[200000];
@@ -15,13 +16,13 @@ int main(){
     string input_line;
 
 
-    for(i = 0; i < 399999; i++)
+    for(i = 0; i <= 399999; i++)
         num[i] = -1;
     
-    for(i = 0; i < 399999; i++)
+    for(i = 0; i <= 399999; i++)
         num2[i] = -1;
     
-    for(i = 0; i < 199999; i++)
+    for(i = 0; i <= 199999; i++)
         num3[i] = -1;
 
     getline(cin, input_line);
@@ -37,7 +38,7 @@ int main(){
                 break;
             } 
         }
-        max = -1;
+        max = 0;
         for(aux2 = a; aux2 <= b ; aux2++){
 
             aux = aux2;
@@ -86,11 +87,10 @@ int main(){
                     i = num3[aux2 - 800000];
             }
 
-                    if(i == 525){
+                    if(i >= 525){
                     num3[aux2 - 800000] = i;
-                    cout << "*** " << num3[aux2-800000] << " " <<max << endl; 
                     }
-            if( i > max){
+            if( i > max ){
                 max = i;
             }
         }
