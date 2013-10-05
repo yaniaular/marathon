@@ -1,9 +1,5 @@
 #include <iostream>
-#include <ctype.h>
 #include <string.h>
-#include <stack>
-#include <sstream>
-#include <stdio.h>
 #include <algorithm> //Para el metodo reverse
 
 using namespace std;
@@ -15,7 +11,7 @@ int main(){
     string par1, par2;
     string input_line;
 
-    for(i = 0; i < 999999; i++)
+    for(i = 0; i <= 999999; i++)
         num[i] = -1;
 
     getline(cin, input_line);
@@ -33,26 +29,28 @@ int main(){
         }
         max = -1;
         for(aux2 = a; aux2 <= b ; aux2++){
-            i = 1;
-            //if(num[aux2] == -1){
-                aux = aux2;
-                while( aux != 1 ){
-                    if( aux % 2 == 1  ){
-                        aux = aux*3 +1;
-                    }
-                    else{
-                        aux = aux/2;
-                    }
-                    i++;
-                }
-                    //num[aux2] = i;
-            //}
-            //else
-            //    max = num[aux2];
 
-              if(i > max){
-                max = i;
+            if(num[aux2] == -1){
+                aux = aux2;
+                i = 1;
+                while( aux > 1 ){
+
+                    if( aux % 2 == 1  )
+                        aux = aux*3 +1;
+                    else
+                        aux = aux/2;
+                    
+                    i+=1;
                 }
+              num[aux2] = i;
+            }
+            else{
+                i = num[aux2];
+            }   
+
+            if( i > max){
+                max = i;
+            }
         }
 
         cout <<  a << " " << b << " "<< max; 
