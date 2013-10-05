@@ -32,8 +32,8 @@ int main(){
 
             if(num[aux2] == -1){
                 aux = aux2;
-                i = 1;
-                while( aux > 1 ){
+                i = 3;
+                while( aux > 4 ){
 
                     if( aux % 2 == 1  )
                         aux = aux*3 +1;
