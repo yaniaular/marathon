@@ -6,24 +6,16 @@
 using namespace std;
 
 int main(){
-    long int aux;
     unsigned long max;
     int tam, i, a, b, aux2;
-    long int num[400000];
-    long int num2[400000];
-    long int num3[200000];
+    long int num[1000000];
+    long int aux;
     string par1, par2;
     string input_line;
 
 
-    for(i = 0; i <= 399999; i++)
+    for(i = 0; i <= 999999; i++)
         num[i] = -1;
-    
-    for(i = 0; i <= 399999; i++)
-        num2[i] = -1;
-    
-    for(i = 0; i <= 199999; i++)
-        num3[i] = -1;
 
     getline(cin, input_line);
     while(cin){
@@ -49,7 +41,6 @@ int main(){
         for(aux2 = a; aux2 <= b ; aux2++){
 
             aux = aux2;
-            if( aux2 < 400000 ){
                 if(  num[aux2] == -1){
                     i = 1;
                     while( aux > 1 ){
@@ -63,40 +54,6 @@ int main(){
                 } 
                 else
                     i = num[aux2];
-            }
-            else if(aux2 >= 400000 && aux2 < 800000 ){
-                if(  num2[aux2 - 400000] == -1){
-                    i = 1;
-                    while( aux > 1 ){
-                        if( aux % 2 == 1  )
-                            aux = aux*3 +1;
-                        else
-                            aux = aux/2;
-                        i+=1;
-                    }
-                    num2[aux2 - 400000] = i;
-                }
-                else
-                    i = num2[aux2 - 400000];
-            }
-            else{
-                if(  num3[aux2 - 800000] == -1){
-                    i = 1;
-                    while( aux > 1 ){
-                        if( aux % 2 == 1  )
-                            aux = aux*3 +1;
-                        else
-                            aux = aux/2;
-                        i+=1;
-                    }
-                }
-                else
-                    i = num3[aux2 - 800000];
-            }
-
-                    if(i >= 525){
-                    num3[aux2 - 800000] = i;
-                    }
             if( i > max ){
                 max = i;
             }
