@@ -38,6 +38,13 @@ int main(){
                 break;
             } 
         }
+        cout <<  a << " " << b;
+        if( a > b  ){
+            max = b;
+            b = a;
+            a = max;
+        }
+             
         max = 0;
         for(aux2 = a; aux2 <= b ; aux2++){
 
@@ -95,7 +102,7 @@ int main(){
             }
         }
 
-        cout <<  a << " " << b << " "<< max; 
+        cout << " "<< max; 
         cout << endl;
         getline(cin, input_line);
     }
