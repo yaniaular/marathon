@@ -13,10 +13,6 @@ int main(){
     string par1, par2;
     string input_line;
 
-
-    for(i = 0; i <= 999999; i++)
-        num[i] = -1;
-
     while(cin >> a >> b){
         
         cout <<  a << " " << b;
@@ -28,21 +24,15 @@ int main(){
              
         max = 0;
         for(aux2 = a; aux2 <= b ; aux2++){
-
             aux = aux2;
-                if(  num[aux2] == -1){
-                    i = 1;
-                    while( aux != 1 ){
-                        if( aux & 1  )
-                            aux = aux*3 +1;
-                        else
-                            aux = aux>>1;
-                        i = i + 1;
-                    }
-                    num[aux2] = i;
-                } 
+            i = 1;
+            while( aux != 1 ){
+                if( aux & 1  )
+                    aux = aux*3 +1;
                 else
-                    i = num[aux2];
+                    aux = aux>>1;
+                i = i + 1;
+            }
             if( i > max ){
                 max = i;
             }
