@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string.h>
 #include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -55,14 +57,23 @@ int main(){
             timestamp = s + (mi*60) + (h*60*60) + (d*24*60*60) + (me*30*24*60*60) + (a*365*24*60*60); 
 
             cout << ", timestamp in sec: " << timestamp;
-            if(timestamp >= m_y){       timestamp /= m_y;  unit="year";
-            }else if(timestamp > m_mo){ timestamp /= m_mo; unit = "year"; 
-            }else if(timestamp > m_w){  timestamp /= m_w;  unit = "month";
-            }else if(timestamp > m_d){  timestamp /= m_d;  unit = "week";
-            }else if(timestamp > m_h){  timestamp /= m_h;  unit = "day";
-            }else if(timestamp > m_mi){ timestamp /= m_mi; unit = "hour";
-            }else if(timestamp >= m_s){  timestamp /= m_s;  unit = "minute";
-            }else { unit = "second";}
+
+            if(timestamp < m_s){       unit = "second"; }
+            else if(timestamp < m_mi){ unit = "minute"; timestamp /= m_s; }
+            else if(timestamp < m_h){  unit = "hour"; timestamp /= m_mi; }
+            else if(timestamp < m_d){  unit = "day"; timestamp /= m_h; }
+            else if(timestamp < m_w){  unit = "week"; timestamp /= m_d; }
+            else if(timestamp < m_mo){ unit = "month"; timestamp /= m_w; }
+            else{                      unit = "year"; timestamp /= m_y; }
+            
+            //if(timestamp >= m_y){       timestamp /= m_y;  unit="year";
+            //}else if(timestamp > m_mo){ timestamp /= m_mo; unit = "year"; 
+            //}else if(timestamp > m_w){  timestamp /= m_w;  unit = "month";
+            //}else if(timestamp > m_d){  timestamp /= m_d;  unit = "week";
+            //}else if(timestamp > m_h){  timestamp /= m_h;  unit = "day";
+            //}else if(timestamp > m_mi){ timestamp /= m_mi; unit = "hour";
+            //}else if(timestamp >= m_s){  timestamp /= m_s;  unit = "minute";
+            //}else { unit = "second";}
             if (timestamp > 1){
                 unit += "s";
             }
