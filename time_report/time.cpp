@@ -20,6 +20,7 @@ int main(){
     int m_w = m_d*6;
     int m_mo = m_h * 365;
     int m_y = m_mo;
+    int fs_mi = 60, fs_h = 60*60, fs_d = 24*60*60, fs_me = 30*24*60*60, fs_a = 365*24*60*60;
 
     cin >> num;
 
@@ -53,18 +54,19 @@ int main(){
             cout << ", Horas " << h;
             cout << ", Minutos " << mi;
             cout << ", Segundos " << s;
-           
-            timestamp = s + (mi*60) + (h*60*60) + (d*24*60*60) + (me*30*24*60*60) + (a*365*24*60*60); 
+
+
+            timestamp = s + mi*fs_mi + h*fs_h + d*fs_d + me*fs_me + a*fs_a; 
 
             cout << ", timestamp in sec: " << timestamp;
 
             if(timestamp < m_s){       unit = "second"; }
-            else if(timestamp < m_mi){ unit = "minute"; timestamp /= m_s; }
-            else if(timestamp < m_h){  unit = "hour"; timestamp /= m_mi; }
-            else if(timestamp < m_d){  unit = "day"; timestamp /= m_h; }
-            else if(timestamp < m_w){  unit = "week"; timestamp /= m_d; }
-            else if(timestamp < m_mo){ unit = "month"; timestamp /= m_w; }
-            else{                      unit = "year"; timestamp /= m_y; }
+            else if(timestamp < m_mi){ unit = "minute"; timestamp /= fs_mi; }
+            else if(timestamp < m_h){  unit = "hour"; timestamp /= fs_h; }
+            else if(timestamp < m_d){  unit = "day"; timestamp /= fs_d; }
+            else if(timestamp < m_w){  unit = "week"; timestamp /= fs_d*7; }
+            else if(timestamp < m_mo){ unit = "month"; timestamp /= fs_me; }
+            else{                      unit = "year"; timestamp /= fs_a; }
             
             //if(timestamp >= m_y){       timestamp /= m_y;  unit="year";
             //}else if(timestamp > m_mo){ timestamp /= m_mo; unit = "year"; 
