@@ -5,7 +5,7 @@ using namespace std;
 
 int main(){
     int i, resu;
-    double cant, gastos[1001], total, result;
+    double cant, gastos[1001], total, total2, result, result2;
 
     cin >> cant;
     while(cant != 0.0){
@@ -16,11 +16,19 @@ int main(){
              total+= gastos[i];
         }
         total = total / cant;
+                resu = total * 100;
+                total = (float) resu / 100;
+        total2 = (float) resu / 100;
+        total2+=0.01;
         for(i = 0; i < cant; i++){
             if( gastos[i] >= total  ){
-            resu = result * 100;
-            result = (float) resu / 100;
+                cout << gastos[i] << " - " << total << " + " << result << endl;
+                //resu = result * 100;
+                //result = (float) resu / 100;
                 result = ( gastos[i] - total  ) + result;
+            }
+            else{
+                result = 
             }
         }
         cout << "$";
